@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title_login %> </title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include('Partials/head') %>
+</head>
+<body class="login">
+    <!-- Barra de Navegacion -->
+    <%- include('Partials/navegation') %>
+    <!-- Shift+alt+f Para organizar el codigo -->
+    <main class="container vh-100 d-flex flex-column justify-content-center align-items-center">7
+        <!-- Titulo de la vista -->
+        <section class="text-center mb-4 text-white">
+            <h1 class="h3"> Inicio de Sesión</h1>
+        </section>
+
+        <div class="login-card p-4 bg-white rounded shadow-lg" style="width: 100%; max-width: 400px;">
+            
+            
+            <form  action="/login" method="post">
+
+                <% if (mensaje) { %>
+                    <div class="error">
+                        <%= mensaje %>
+                    </div> <% } %>
+                
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="usuario" placeholder="Usuario" required>
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                </div>
+
+                <div>
+                    <a href="/registro" class="btn btn-outline-dark w-50 rounded-pill"> Crear Usuario </a>
+                    <button type="submit" class="btn btn-primary w-50 rounded-pill"> Ingresar </button>
+                    <button type="reset" class="btn btn-primary w-50 rounded-pill"> Limpiar </button>
+                </div>
+            </form>
+
+            <!-- Enlace de recuperacion -->
+            <div class="links text-center mt-3 d-flex flex-column gap-1">
+                <a href="/recuperar_password" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+                <a href="/recordar-usuario" class="text-decoration-none">¿Olvidaste tu usuario?</a>
+            </div>
+        </div>
+    </main>
+    <%- include('Partials/footer') %>
+</body>
+</html>
