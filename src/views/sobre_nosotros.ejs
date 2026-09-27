@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= etiqueta %> </title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include('Partials/head') %>
+    <style>
+        .rm-page {
+            --rm-primary: #6c63ff;
+            --rm-accent: #4fd1c5;
+            --rm-dark: #1f2340;
+            --rm-soft: #f5f4ff;
+            --rm-text: #3d4260;
+            background: var(--rm-soft);
+            color: var(--rm-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .rm-hero {
+            background: linear-gradient(135deg, var(--rm-primary) 0%, var(--rm-accent) 100%);
+            color: #fff;
+            padding: 5rem 1rem 6rem;
+            border-radius: 0 0 3rem 3rem;
+        }
+        .rm-hero h1 { font-weight: 700; }
+        .rm-hero .lead { max-width: 680px; margin: 0 auto; opacity: .95; }
+        .rm-badge {
+            display: inline-block;
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.35);
+            padding: .35rem 1rem;
+            border-radius: 50rem;
+            font-size: .9rem;
+            margin-bottom: 1rem;
+        }
+        .rm-section-title { color: var(--rm-dark); font-weight: 700; }
+        .rm-section-title span { color: var(--rm-primary); }
+        .rm-card {
+            background: #fff;
+            border: none;
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 24px rgba(108, 99, 255, .10);
+            transition: transform .2s ease, box-shadow .2s ease;
+            height: 100%;
+        }
+        .rm-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(108, 99, 255, .18);
+        }
+        .rm-icon {
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            border-radius: 1rem;
+            background: var(--rm-soft);
+            margin-bottom: 1rem;
+        }
+        .rm-overlap { margin-top: -3.5rem; }
+        .rm-step-num {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--rm-primary);
+            color: #fff;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .rm-quote {
+            background: var(--rm-dark);
+            color: #fff;
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+        }
+        .rm-quote p { font-size: 1.35rem; font-style: italic; }
+        .rm-btn {
+            background: #fff;
+            color: var(--rm-primary);
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .75rem 2rem;
+        }
+        .rm-btn:hover { background: var(--rm-dark); color: #fff; }
+        .rm-btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .7rem 2rem;
+        }
+        .rm-btn-outline:hover { background: #fff; color: var(--rm-primary); }
+    </style>
+</head>
+<body class="rm-page">
+    <%- include('Partials/navegation') %>
+
+    <!-- HERO -->
+    <header class="rm-hero text-center">
+        <div class="container">
+            <span class="rm-badge">💜 Salud mental, un día a la vez</span>
+            <h1 class="display-4 mb-3">Sobre Read Me</h1>
+            <p class="lead">
+                Read Me nace de una idea simple: el proceso terapéutico no termina cuando acaba la sesión.
+                Somos una app de recordatorios y acompañamiento que conecta a pacientes con sus terapeutas,
+                para que cuidarse sea un hábito y no un esfuerzo.
+            </p>
+        </div>
+    </header>
+
+    <main class="container pb-5">
+
+        <!-- MISIÓN / VISIÓN / VALORES -->
+        <section class="row g-4 rm-overlap">
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">🎯</div>
+                    <h3 class="h5 rm-section-title">Nuestra misión</h3>
+                    <p class="mb-0">
+                        Acompañar a cada persona entre sesión y sesión, recordándole sus ejercicios,
+                        sus metas y lo importante que es detenerse a escucharse.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">🌱</div>
+                    <h3 class="h5 rm-section-title">Nuestra visión</h3>
+                    <p class="mb-0">
+                        Ser la herramienta de confianza de pacientes y terapeutas en Latinoamérica,
+                        haciendo que el cuidado emocional sea constante, cercano y accesible.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">🤝</div>
+                    <h3 class="h5 rm-section-title">Nuestros valores</h3>
+                    <p class="mb-0">
+                        Empatía, privacidad y constancia. Tu información es tuya, y solo la compartes
+                        con quien tú decidas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ HACE READ ME -->
+        <section class="py-5 mt-4">
+            <div class="text-center mb-5">
+                <h2 class="rm-section-title">¿Qué puedes hacer con <span>Read Me</span>?</h2>
+                <p class="text-muted">Pequeñas acciones diarias que suman a tu bienestar.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">⏰</div>
+                        <h3 class="h6 fw-bold">Recordatorios inteligentes</h3>
+                        <p class="mb-0">Avisos para tus ejercicios, citas y tareas terapéuticas, justo cuando los necesitas.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">😊</div>
+                        <h3 class="h6 fw-bold">Chequeo de ánimo diario</h3>
+                        <p class="mb-0">Registra cómo te sientes cada día y observa tu evolución con el tiempo.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">🧠</div>
+                        <h3 class="h6 fw-bold">Registro emocional</h3>
+                        <p class="mb-0">Anota la situación, el pensamiento, la emoción y la conducta para entenderte mejor.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">📓</div>
+                        <h3 class="h6 fw-bold">Diario compartido</h3>
+                        <p class="mb-0">Escribe libremente y comparte con tu terapeuta solo lo que quieras.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">🏆</div>
+                        <h3 class="h6 fw-bold">Logros y ejercicios</h3>
+                        <p class="mb-0">Completa los ejercicios asignados y celebra cada avance, por pequeño que sea.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card rm-card p-4">
+                        <div class="rm-icon">🔗</div>
+                        <h3 class="h6 fw-bold">Conexión con tu terapeuta</h3>
+                        <p class="mb-0">Vincúlate fácilmente con un código de invitación y mantén el proceso en un solo lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓMO FUNCIONA -->
+        <section class="py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h2 class="rm-section-title">¿Cómo <span>funciona</span>?</h2>
+                    <p class="text-muted">
+                        Diseñamos Read Me para que empezar sea fácil, tanto para pacientes como para profesionales.
+                    </p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="rm-step-num">1</div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Crea tu cuenta</h3>
+                            <p class="mb-0">Regístrate como paciente o como terapeuta en menos de un minuto.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="rm-step-num">2</div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Conéctate</h3>
+                            <p class="mb-0">Tu terapeuta te comparte un código y quedan vinculados de forma segura.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="rm-step-num">3</div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Recibe tus recordatorios</h3>
+                            <p class="mb-0">Ejercicios, citas y chequeos llegan a tiempo para que no se te pase nada.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <div class="rm-step-num">4</div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Avanza a tu ritmo</h3>
+                            <p class="mb-0">Registra, reflexiona y comparte tu progreso en cada sesión.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRASE -->
+        <section class="py-4">
+            <div class="rm-quote text-center">
+                <p class="mb-3">"Cuidar tu mente también es parte de tu rutina."</p>
+                <small class="opacity-75">— El equipo de Read Me</small>
+            </div>
+        </section>
+
+        <!-- LLAMADO A LA ACCIÓN -->
+        <section class="py-5">
+            <div class="rm-hero text-center" style="border-radius: 2rem; padding: 3.5rem 1rem;">
+                <h2 class="fw-bold mb-3">Empieza hoy a cuidarte con Read Me</h2>
+                <p class="lead mb-4">Tu bienestar merece un recordatorio.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="/registro" class="btn rm-btn">Crear cuenta</a>
+                    <a href="/contactos" class="btn rm-btn-outline">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

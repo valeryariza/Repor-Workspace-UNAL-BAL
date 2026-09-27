@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title_login !== 'undefined' ? title_login : 'Login' %></title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Enlace entre el "head" y "navegation" -->
+    <%- include('Partials/head') %>
+    <style>
+        .rm-page {
+            --rm-primary: #6c63ff;
+            --rm-accent: #4fd1c5;
+            --rm-dark: #1f2340;
+            --rm-soft: #f5f4ff;
+            --rm-text: #3d4260;
+            background: linear-gradient(135deg, var(--rm-primary) 0%, var(--rm-accent) 100%);
+            color: var(--rm-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .rm-login-wrap { min-height: 85vh; }
+        .rm-login-card {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(31, 35, 64, .25);
+        }
+        /* Panel izquierdo (marca) */
+        .rm-brand {
+            background: var(--rm-dark);
+            color: #fff;
+            padding: 3rem 2.5rem;
+        }
+        .rm-logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 0 8px rgba(255,255,255,.1);
+            animation: rm-flotar 4s ease-in-out infinite;
+        }
+        @keyframes rm-flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .rm-brand-list li { margin-bottom: .6rem; opacity: .9; }
+        /* Panel derecho (formulario) */
+        .rm-form { padding: 3rem 2.5rem; }
+        .rm-form h1 { color: var(--rm-dark); font-weight: 700; }
+        .rm-input {
+            border-radius: .9rem;
+            padding: .8rem 1rem;
+            border: 2px solid #e6e4ff;
+            background: var(--rm-soft);
+        }
+        .rm-input:focus {
+            border-color: var(--rm-primary);
+            box-shadow: 0 0 0 .2rem rgba(108, 99, 255, .15);
+            background: #fff;
+        }
+        .rm-btn-primary {
+            background: var(--rm-primary);
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .75rem;
+            border: none;
+        }
+        .rm-btn-primary:hover { background: var(--rm-dark); color: #fff; }
+        .rm-btn-outline {
+            border: 2px solid var(--rm-primary);
+            color: var(--rm-primary);
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .7rem;
+        }
+        .rm-btn-outline:hover { background: var(--rm-primary); color: #fff; }
+        .rm-btn-clear {
+            color: #8a8fb0;
+            font-weight: 500;
+            background: none;
+            border: none;
+        }
+        .rm-btn-clear:hover { color: var(--rm-dark); }
+        .rm-error {
+            background: #ffe8ec;
+            color: #c0304a;
+            border-radius: .8rem;
+            padding: .75rem 1rem;
+            margin-bottom: 1rem;
+            font-size: .95rem;
+        }
+        .rm-links a { color: var(--rm-primary); font-size: .95rem; }
+        .rm-links a:hover { color: var(--rm-dark); }
+    </style>
+</head>
+<body class="rm-page">
+
+    <!-- Barra de Navegacion -->
+    <%- include('Partials/navegation') %>
+
+    <!-- Contenedor principal que centra todo vertical y horizontalmente -->
+    <main class="container d-flex justify-content-center align-items-center py-5 rm-login-wrap">
+        <div class="rm-login-card row g-0">
+
+            <!-- Panel de marca (se oculta en celulares) -->
+            <section class="col-md-5 rm-brand d-none d-md-flex flex-column justify-content-center">
+                <img src="img/logoBENDITO.png" alt="Logo de Read Me" class="rm-logo mb-4">
+                <h2 class="fw-bold mb-2">Hola de nuevo 💜</h2>
+                <p class="opacity-75 mb-4">Tu espacio para cuidarte un día a la vez.</p>
+                <ul class="list-unstyled rm-brand-list mb-0">
+                    <li>⏰ Tus recordatorios te esperan</li>
+                    <li>😊 Registra cómo te sientes hoy</li>
+                    <li>🤝 Conecta con tu terapeuta</li>
+                </ul>
+            </section>
+
+            <!-- Formulario -->
+            <section class="col-md-7 rm-form">
+                <div class="text-center mb-4">
+                    <h1 class="h3 mb-1">Iniciar Sesión</h1>
+                    <p class="text-muted mb-0">Ingresa para continuar en Read Me</p>
+                </div>
+
+                <!-- Formulario Principal -->
+                <form action="/login" method="post">
+                    <% if (mensaje) { %> <div class="rm-error">⚠️ <%= mensaje %></div> <% } %>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Email</label>
+                        <input type="text" id="email" class="form-control rm-input" name="Email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="contrasena" class="form-label fw-semibold">Contraseña</label>
+                        <input type="password" id="contrasena" class="form-control rm-input" name="contrasena" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn rm-btn-primary w-100 mb-3">Ingresar</button>
+                    <a href="/registro" class="btn rm-btn-outline w-100 mb-2">Crear Usuario</a>
+
+                    <div class="text-center">
+                        <button type="reset" class="rm-btn-clear">Limpiar campos</button>
+                    </div>
+                </form>
+
+                <!-- Enlaces de recuperacion -->
+                <div class="rm-links text-center mt-3 d-flex flex-column gap-1">
+                    <a href="/recuperar-password" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+                    <a href="/recordar-usuario" class="text-decoration-none">¿Olvidaste tu usuario?</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <%- include('Partials/footer') %>
+</body>
+</html>

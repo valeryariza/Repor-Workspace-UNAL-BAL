@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= etiqueta %> </title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include('Partials/head') %>
+    <style>
+        .rm-page {
+            --rm-primary: #6c63ff;
+            --rm-accent: #4fd1c5;
+            --rm-dark: #1f2340;
+            --rm-soft: #f5f4ff;
+            --rm-text: #3d4260;
+            background: var(--rm-soft);
+            color: var(--rm-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .rm-hero {
+            background: linear-gradient(135deg, var(--rm-primary) 0%, var(--rm-accent) 100%);
+            color: #fff;
+            min-height: 90vh;
+            padding: 4rem 1rem;
+            border-radius: 0 0 3rem 3rem;
+            display: flex;
+            align-items: center;
+        }
+        .rm-logo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 0 10px rgba(255,255,255,.2), 0 20px 40px rgba(0,0,0,.2);
+            animation: rm-flotar 4s ease-in-out infinite;
+        }
+        @keyframes rm-flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .rm-titulo {
+            font-size: clamp(3rem, 9vw, 6rem);
+            font-weight: 800;
+            letter-spacing: .05em;
+        }
+        .rm-hero .lead { max-width: 620px; margin: 0 auto; opacity: .95; }
+        .rm-btn {
+            background: #fff;
+            color: var(--rm-primary);
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .8rem 2.2rem;
+        }
+        .rm-btn:hover { background: var(--rm-dark); color: #fff; }
+        .rm-btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: .75rem 2.2rem;
+        }
+        .rm-btn-outline:hover { background: #fff; color: var(--rm-primary); }
+        .rm-section-title { color: var(--rm-dark); font-weight: 700; }
+        .rm-section-title span { color: var(--rm-primary); }
+        .rm-card {
+            background: #fff;
+            border: none;
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 24px rgba(108, 99, 255, .10);
+            transition: transform .2s ease, box-shadow .2s ease;
+            height: 100%;
+        }
+        .rm-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(108, 99, 255, .18);
+        }
+        .rm-icon {
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            border-radius: 1rem;
+            background: var(--rm-soft);
+            margin: 0 auto 1rem;
+        }
+        .rm-overlap { margin-top: -4rem; }
+        .rm-lista li { margin-bottom: .6rem; }
+        .rm-final {
+            background: var(--rm-dark);
+            color: #fff;
+            border-radius: 2rem;
+            padding: 3.5rem 1rem;
+        }
+    </style>
+</head>
+<body class="rm-page">
+    <%- include('Partials/navegation') %>
+
+    <!-- HERO -->
+    <header class="rm-hero text-center">
+        <div class="container d-flex flex-column align-items-center">
+            <img src="img/logoBENDITO.png" alt="Logo de Read Me" class="rm-logo mb-4">
+            <h1 class="rm-titulo text-uppercase mb-3">Read Me</h1>
+            <p class="lead mb-5">
+                Tu compañero entre sesiones. Recordatorios, registro emocional y conexión
+                con tu terapeuta, todo en un solo lugar.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="/login" class="btn rm-btn">Bienvenido</a>
+                <a href="/sobre_nosotros" class="btn rm-btn-outline">Conócenos</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container pb-5">
+
+        <!-- 3 CARACTERÍSTICAS PRINCIPALES -->
+        <section class="row g-4 rm-overlap text-center">
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">⏰</div>
+                    <h3 class="h5 rm-section-title">No olvides nada</h3>
+                    <p class="mb-0">Recordatorios para tus ejercicios, citas y momentos de autocuidado.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">😊</div>
+                    <h3 class="h5 rm-section-title">Escúchate</h3>
+                    <p class="mb-0">Registra cómo te sientes cada día y descubre tus patrones emocionales.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rm-card p-4">
+                    <div class="rm-icon">🤝</div>
+                    <h3 class="h5 rm-section-title">Acompáñate</h3>
+                    <p class="mb-0">Comparte tu progreso con tu terapeuta y llega mejor preparado a cada sesión.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARA QUIÉN ES -->
+        <section class="py-5 mt-4">
+            <div class="text-center mb-5">
+                <h2 class="rm-section-title">Hecho para <span>ti</span> y para tu <span>terapeuta</span></h2>
+                <p class="text-muted">Read Me une a las dos partes del proceso.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card rm-card p-4">
+                        <h3 class="h5 rm-section-title mb-3">🙋 Para pacientes</h3>
+                        <ul class="list-unstyled rm-lista mb-0">
+                            <li>✔️ Recordatorios de ejercicios y citas</li>
+                            <li>✔️ Chequeo de ánimo diario</li>
+                            <li>✔️ Diario personal que tú decides compartir</li>
+                            <li>✔️ Logros para celebrar tus avances</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card rm-card p-4">
+                        <h3 class="h5 rm-section-title mb-3">🧑‍⚕️ Para terapeutas</h3>
+                        <ul class="list-unstyled rm-lista mb-0">
+                            <li>✔️ Asigna ejercicios a tus pacientes</li>
+                            <li>✔️ Revisa sus registros emocionales</li>
+                            <li>✔️ Vincúlalos con un código de invitación</li>
+                            <li>✔️ Sigue su evolución entre sesiones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LLAMADO FINAL -->
+        <section class="py-4">
+            <div class="rm-final text-center">
+                <h2 class="fw-bold mb-3">Tu bienestar merece un recordatorio 💜</h2>
+                <p class="mb-4 opacity-75">Empieza hoy, un pequeño paso a la vez.</p>
+                <a href="/login" class="btn rm-btn">Comenzar ahora</a>
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('Partials/footer') %>
+</body>
+</html>
